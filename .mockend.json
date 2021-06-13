@@ -1,0 +1,8 @@
+{
+  "Post": {
+    "title": "kingdom",
+    "views": "int",
+    "published": "boolean",
+    "createdAt": "date"
+  }
+}
