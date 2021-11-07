@@ -41,6 +41,8 @@ X_test_encoding = pd.get_dummies(X_test, columns=['me', 'c1', 'c2', 'c3', 'c4', 
 
 # 학습 데이터 병합
 result = X_encoding.append(X_test_encoding, sort=False)
+result = result.drop(X_test_encoding.columns.difference(X_encoding.columns), axis=1)
+
 result = result.tail(result_show_size)
 result = result.replace(np.nan, '0')
 
@@ -55,8 +57,8 @@ for ending_price in X_test.tail(result_show_size)['me'].values:
         print(ending_price + " " + str(y_pred[count - result_show_size]))
     count = count + 1
 
-print(result.tail(result_show_size))
+# print(result.tail(result_show_size))
 # X_encoding.to_csv('./sampleX.CSV', sep=',', na_rep='NaN')
 # X_test.to_csv('./samplePred.CSV', sep=',', na_rep='NaN')
 # X_test_encoding.to_csv('./samplePredOHE.CSV', sep=',', na_rep='NaN')
-result.to_csv('./result.CSV', sep=',', na_rep='NaN')
+# result.to_csv('./result.CSV', sep=',', na_rep='NaN')
