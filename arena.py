@@ -40,7 +40,7 @@ X_test = putMoreData(X_test)
 X_test_encoding = pd.get_dummies(X_test, columns=['me', 'c1', 'c2', 'c3', 'c4', 'c5'])
 
 # 학습 데이터 병합
-result = X_encoding.append(X_test_encoding, sort=False)
+result = X_encoding.head(1).append(X_test_encoding, sort=False)
 result = result.drop(X_test_encoding.columns.difference(X_encoding.columns), axis=1)
 
 result = result.tail(result_show_size)
